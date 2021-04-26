@@ -1,12 +1,13 @@
 package com.galvanize.cart;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Cart {
-    public static ArrayList<Item> cartItems = new ArrayList<Item>();
-    public static ArrayList<Integer> cartQuantities = new ArrayList<>();
+    public ArrayList<Item> cartItems = new ArrayList<Item>();
+    public ArrayList<Integer> cartQuantities = new ArrayList<>();
 
-    public static void addItem(Item item, int quantity) {
+    public void addItem(Item item, int quantity) {
         cartItems.add(item);
         cartQuantities.add(quantity);
     }
@@ -23,4 +24,25 @@ public class Cart {
     public ArrayList<Item> itemizedList(){
         return cartItems;
     }
+
+    public int itemQuantities(){
+        int quantities = 0;
+        for(int num : cartQuantities) {
+            System.out.println("num: " + num);
+            quantities += num;
+        }
+        return quantities;
+    }
+
+    public HashSet<Item> onSaleItems(){
+        HashSet<Item> saleItems = new HashSet<>();
+
+        for (Item item : cartItems) {
+            if (item.sale) {
+                saleItems.add(item);
+            }
+        }
+        return saleItems;
+    }
+
 }
