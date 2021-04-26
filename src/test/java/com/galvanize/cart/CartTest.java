@@ -33,14 +33,15 @@ public class CartTest {
     public void testTotalPrice() {
         //setup
         Cart cartTest = new Cart();
-        double expectedTotalPrice = 10;
+        double expectedTotalPrice = 24;
         Item item1 = new Item("apple", 5.00);
         Item item2 = new Item("milk", 3.00);
         Item item3 = new Item("cereal", 2.00);
 
-        cartTest.cartItems.add(item1);
-        cartTest.cartItems.add(item2);
-        cartTest.cartItems.add(item3);
+        cartTest.addItem(item1, 2);
+        cartTest.addItem(item2, 4);
+        cartTest.addItem(item3, 1);
+
 
         //execution
         double actual = cartTest.getTotalPrice();
@@ -70,6 +71,8 @@ public class CartTest {
         //assert
         assertEquals(expected, actual);
     }
+
+
 
 
 }
